@@ -39,7 +39,7 @@
                 const percentage = parseFloat(document.getElementById('percentage').value);
                 const total = parseFloat(document.getElementById('total').value);
                 if (!isNaN(percentage) && !isNaN(total) ) {
-                document.getElementById('result').value = percentage + total;
+                document.getElementById('result').value = total+percentage;
             } 
         }
         
@@ -48,7 +48,7 @@
                 const percentage = parseFloat(document.getElementById('percentage').value);
                 const total = parseFloat(document.getElementById('total').value);
                 if (!isNaN(percentage) && !isNaN(total) ) {
-                document.getElementById('result').value =  Math.abs(percentage - total);
+                document.getElementById('result').value =  (total-percentage );
                 }
         }
         
