@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Percentage Calculator</h1>
+    <div >
+        <input type="number" id="total" placeholder="Enter total amount" /> 
+        <input type="number" id="percentage" placeholder="Enter %"/>
+       
+        <input type="number" id="result" placeholder="Result" >
+        
+    </div>
+    <script>
+        function calculateValue() {
+            const percentage = parseFloat(document.getElementById('percentage').value);
+            const total = parseFloat(document.getElementById('total').value);
+            const result = parseFloat(document.getElementById('result').value);
+
+            if (!isNaN(percentage) && !isNaN(total) && isNaN(result)) {
+                
+                document.getElementById('result').value = (percentage / 100) * total;
+            } else if (!isNaN(result) && !isNaN(total) && isNaN(percentage)) {
+                
+                document.getElementById('percentage').value = (result / total) * 100;
+            } else if (!isNaN(percentage) && !isNaN(result) && isNaN(total)) {
+            
+                document.getElementById('total').value = (result * 100) / percentage;
+            } 
+            
+        }
+        function calculateAdd(){
+            
+                const percentage = parseFloat(document.getElementById('percentage').value);
+                const total = parseFloat(document.getElementById('total').value);
+                if (!isNaN(percentage) && !isNaN(total) ) {
+                document.getElementById('result').value = percentage + total;
+            } 
+        }
+        
+
+        function calculateSub(){
+                const percentage = parseFloat(document.getElementById('percentage').value);
+                const total = parseFloat(document.getElementById('total').value);
+                if (!isNaN(percentage) && !isNaN(total) ) {
+                document.getElementById('result').value =  Math.abs(percentage - total);
+                }
+        }
+        
+    </script>
+    <div class="radio-group">
+        <label>
+            <input type="radio" name="method" value="percentage" onclick="calculateValue()" checked> Normal
+        </label>
+        <label>
+            <input type="radio" name="method" value="amount" onclick="calculateAdd()" > Add
+        </label>
+        <label>
+            <input type="radio" name="method" value="total" onclick="calculateSub()" > Sub
+        </label>
+    </div>
+    </div>
+</body>
+</html>
